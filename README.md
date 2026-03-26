@@ -53,9 +53,8 @@ This makes the campaign notable because it succeeds through user interaction and
 
 The campaign appears designed to convince the victim that a Zoom meeting is malfunctioning. Based on the notes extracted from ANY.RUN, the lure includes a meeting-like interface with missing participant media, confusion around captions, and a prompt instructing the user to download an updated version before returning to the session.
 
-**Image Placeholder**
-- `screenshots/01_fake_zoom_interface.png`
-- `screenshots/02_download_prompt.png`
+<img width="519" height="245" alt="image" src="https://github.com/user-attachments/assets/65fa20d7-932c-4d3d-a956-b47040186470" />
+<img width="518" height="262" alt="image" src="https://github.com/user-attachments/assets/57b355af-fed3-405a-82f0-82d5bdfd25b8" />
 
 ### 2. VBS Staging Activity
 
@@ -82,8 +81,8 @@ This is a common malicious execution pattern because it:
 - Bypasses execution policy restrictions
 - Hides the PowerShell window from the user
 
-**Image Placeholder**
-- `screenshots/03_powershell_execution.png`
+<img width="271" height="55" alt="image" src="https://github.com/user-attachments/assets/1b7bef10-2f6b-41dd-9c51-aa9384f45395" />
+
 
 ### 4. Zone.Identifier Removal and Cleanup
 
@@ -115,8 +114,7 @@ Observed command line:
 
 The parameter set indicates that the client was not merely dropped, but provisioned to connect to a specific remote host and session context.
 
-**Image Placeholder**
-- `screenshots/04_screenconnect_service.png`
+<img width="273" height="137" alt="image" src="https://github.com/user-attachments/assets/5fc8565a-4cdb-40f0-89cd-7af551082531" />
 
 ### 6. Persistence via Windows Service
 
@@ -156,8 +154,7 @@ The notes also include a sample message containing:
 
 This suggests the operator receives near-real-time interaction telemetry when the victim clicks the download flow.
 
-**Image Placeholder**
-- `screenshots/05_telegram_notification.png`
+<img width="467" height="270" alt="image" src="https://github.com/user-attachments/assets/9343d87d-a172-4ff8-9619-4ad8ce471cdb" />
 
 ## Indicators of Compromise
 
@@ -242,6 +239,4 @@ zoom-rmm-malware-analysis/
 
 ## Notes
 
-- This repository is intentionally structured so screenshots from ANY.RUN can be added later without changing the narrative.
 - The current assessment is based on the notes and telemetry extracted from ANY.RUN, not on full reverse engineering of every dropped script or binary.
-- The COM registration step should remain classified as suspicious until the backing DLL path is validated.
