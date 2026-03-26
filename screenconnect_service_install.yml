@@ -1,0 +1,22 @@
+title: ScreenConnect Client Service Installation
+id: 7a2f5f0f-6e36-4a61-9f1f-1f2734f1d002
+status: experimental
+description: Detects potential ScreenConnect client installation or persistence through service creation.
+author: OpenAI
+date: 2026-03-26
+logsource:
+  product: windows
+  category: registry_set
+detection:
+  target:
+    TargetObject|contains: '\SYSTEM\ControlSet'
+    TargetObject|contains|all:
+      - '\Services\'
+      - 'ScreenConnect Client'
+  condition: target
+falsepositives:
+  - Legitimate ScreenConnect deployments
+level: medium
+tags:
+  - attack.t1219
+  - attack.t1543
