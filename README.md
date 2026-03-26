@@ -11,6 +11,8 @@
 - [High-Level Summary](#high-level-summary)
 - [Attack Flow](#attack-flow)
 - [Technical Deep Dive](#technical-deep-dive)
+- [Detection Strategy](#detection-strategy)
+- [Why This Matters](#why-this-matters)
 - [Indicators of Compromise](#indicators-of-compromise)
 - [Detection Opportunities](#detection-opportunities)
 - [MITRE ATT&CK Mapping](#mitre-attck-mapping)
@@ -43,7 +45,7 @@ This makes the campaign notable because it succeeds through user interaction and
 3. A VBS script is launched with `wscript.exe`
 4. The VBS chain triggers PowerShell in a hidden window
 5. Payload components are staged in `%TEMP%`
-6. A ScreenConnect client is installed
+6. A ScreenConnect client is installed - This indicates intentional RMM abuse rather than opportunistic payload execution
 7. A Windows service is created for persistence
 8. Victim telemetry is relayed through the Telegram Bot API
 
@@ -155,6 +157,22 @@ The notes also include a sample message containing:
 This suggests the operator receives near-real-time interaction telemetry when the victim clicks the download flow.
 
 <img width="467" height="270" alt="image" src="https://github.com/user-attachments/assets/9343d87d-a172-4ff8-9619-4ad8ce471cdb" />
+
+## Detection Strategy
+
+Detection should focus on:
+
+- Parent-child relationships (WScript → PowerShell)
+- Execution flags (hidden + bypass)
+- RMM installation outside approved baseline
+
+## Why This Matters
+
+This campaign demonstrates that:
+
+- Attackers do not need exploits to gain access
+- Legitimate tools (RMM) remain a major blind spot
+- Behavioral detection is more reliable than signature-based detection in such cases
 
 ## Indicators of Compromise
 
